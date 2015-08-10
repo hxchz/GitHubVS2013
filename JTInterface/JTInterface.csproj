@@ -97,7 +97,6 @@
     <Folder Include="Model\" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="DBconfig.xml" />
     <Content Include="UserName.xml">
       <SubType>Designer</SubType>
     </Content>
