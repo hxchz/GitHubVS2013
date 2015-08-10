@@ -9,6 +9,7 @@ namespace JTInterface.Dao
     {
         public string getConnectString()
         {
+            //test git
             string ConnString;
             string ServerName;
             string DBName;
