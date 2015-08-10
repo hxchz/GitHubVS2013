@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<dbs>
+  <db>
+    <name>测试</name>
+    <ServerName>115.238.81.42</ServerName>
+    <DBName>jinteng</DBName>
+    <User>sa</User>
+    <Password>JINteng)!(@8374</Password>
+  </db>
+  <db>
+    <name>ERP</name>
+    <ServerName>115.238.81.42</ServerName>
+    <DBName>jinteng</DBName>
+    <User>sa</User>
+    <Password>JINteng)!(@8374</Password>
+  </db>
+  <db>
+    <name>工控</name>
+    <ServerName>哈里波特</ServerName>
+    <DBName>哈里波特</DBName>
+    <User>哈里波特</User>
+    <Password>哈里波特</Password>
+  </db>
+</dbs>
