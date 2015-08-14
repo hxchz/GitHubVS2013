@@ -28,8 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.刷新ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.dgv_1 = new System.Windows.Forms.DataGridView();
@@ -77,29 +77,29 @@
             this.carid = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.locationstatus = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
+            this.button1 = new System.Windows.Forms.Button();
             this.textBox3 = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
+            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.dataGridView2 = new System.Windows.Forms.DataGridView();
             this.companyname = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.DeliveryName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TruckId = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Quantity = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ItemNo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_1)).BeginInit();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
-            this.groupBox3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
+            this.groupBox3.SuspendLayout();
             this.SuspendLayout();
             // 
             // menuStrip1
@@ -331,9 +331,9 @@
             // qty_yuding
             // 
             this.qty_yuding.DataPropertyName = "qty_yuding";
-            dataGridViewCellStyle13.Format = "N1";
-            dataGridViewCellStyle13.NullValue = "0.0";
-            this.qty_yuding.DefaultCellStyle = dataGridViewCellStyle13;
+            dataGridViewCellStyle3.Format = "N1";
+            dataGridViewCellStyle3.NullValue = "0.0";
+            this.qty_yuding.DefaultCellStyle = dataGridViewCellStyle3;
             this.qty_yuding.HeaderText = "预定方量";
             this.qty_yuding.Name = "qty_yuding";
             this.qty_yuding.Width = 75;
@@ -347,9 +347,9 @@
             // tongqiangdu_date
             // 
             this.tongqiangdu_date.DataPropertyName = "tongqiangdu_date";
-            dataGridViewCellStyle14.Format = "E0";
-            dataGridViewCellStyle14.NullValue = "0";
-            this.tongqiangdu_date.DefaultCellStyle = dataGridViewCellStyle14;
+            dataGridViewCellStyle4.Format = "E0";
+            dataGridViewCellStyle4.NullValue = "0";
+            this.tongqiangdu_date.DefaultCellStyle = dataGridViewCellStyle4;
             this.tongqiangdu_date.HeaderText = "砼强度逾龄";
             this.tongqiangdu_date.Name = "tongqiangdu_date";
             this.tongqiangdu_date.Width = 76;
@@ -512,37 +512,14 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "调入生产";
             // 
-            // label1
+            // button1
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(10, 55);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(137, 25);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "任务编号：";
-            // 
-            // textBox1
-            // 
-            this.textBox1.Location = new System.Drawing.Point(202, 52);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(248, 35);
-            this.textBox1.TabIndex = 1;
-            // 
-            // textBox2
-            // 
-            this.textBox2.Location = new System.Drawing.Point(202, 97);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(248, 35);
-            this.textBox2.TabIndex = 3;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(10, 100);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(162, 25);
-            this.label2.TabIndex = 2;
-            this.label2.Text = "配比单编号：";
+            this.button1.Location = new System.Drawing.Point(311, 374);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(139, 41);
+            this.button1.TabIndex = 6;
+            this.button1.Text = "开始调度";
+            this.button1.UseVisualStyleBackColor = true;
             // 
             // textBox3
             // 
@@ -560,14 +537,37 @@
             this.label3.TabIndex = 4;
             this.label3.Text = "总任务量：";
             // 
-            // button1
+            // textBox2
             // 
-            this.button1.Location = new System.Drawing.Point(311, 374);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(139, 41);
-            this.button1.TabIndex = 6;
-            this.button1.Text = "开始调度";
-            this.button1.UseVisualStyleBackColor = true;
+            this.textBox2.Location = new System.Drawing.Point(202, 97);
+            this.textBox2.Name = "textBox2";
+            this.textBox2.Size = new System.Drawing.Size(248, 35);
+            this.textBox2.TabIndex = 3;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(10, 100);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(162, 25);
+            this.label2.TabIndex = 2;
+            this.label2.Text = "配比单编号：";
+            // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(202, 52);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(248, 35);
+            this.textBox1.TabIndex = 1;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(10, 55);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(137, 25);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "任务编号：";
             // 
             // groupBox2
             // 
@@ -578,16 +578,6 @@
             this.groupBox2.TabIndex = 35;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "工控机车辆队列";
-            // 
-            // groupBox3
-            // 
-            this.groupBox3.Controls.Add(this.dataGridView1);
-            this.groupBox3.Location = new System.Drawing.Point(0, 578);
-            this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(522, 429);
-            this.groupBox3.TabIndex = 36;
-            this.groupBox3.TabStop = false;
-            this.groupBox3.Text = "厂内车辆";
             // 
             // dataGridView2
             // 
@@ -638,6 +628,16 @@
             this.ItemNo.HeaderText = "盘号";
             this.ItemNo.Name = "ItemNo";
             // 
+            // groupBox3
+            // 
+            this.groupBox3.Controls.Add(this.dataGridView1);
+            this.groupBox3.Location = new System.Drawing.Point(0, 578);
+            this.groupBox3.Name = "groupBox3";
+            this.groupBox3.Size = new System.Drawing.Size(522, 429);
+            this.groupBox3.TabIndex = 36;
+            this.groupBox3.TabStop = false;
+            this.groupBox3.Text = "厂内车辆";
+            // 
             // FrmTask
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 24F);
@@ -662,8 +662,8 @@
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
-            this.groupBox3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
+            this.groupBox3.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
