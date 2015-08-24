@@ -26,7 +26,9 @@ namespace JTInterface
                 login();
                 setDefaultUserName();
                 FrmTask task = new FrmTask();
+                FrmTasksplit task2 = new FrmTasksplit();
                 task.Show();
+                task2.Show();
                 this.Hide();
             }
             catch (Exception ex)

@@ -28,10 +28,12 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.刷新ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.定时刷新ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.dgv_1 = new System.Windows.Forms.DataGridView();
             this.is_diaoru = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.no_gongkongji = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -92,6 +94,8 @@
             this.Quantity = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ItemNo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.暂停刷新ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_1)).BeginInit();
             this.panel1.SuspendLayout();
@@ -105,7 +109,9 @@
             // menuStrip1
             // 
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.刷新ToolStripMenuItem});
+            this.刷新ToolStripMenuItem,
+            this.定时刷新ToolStripMenuItem,
+            this.暂停刷新ToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(1894, 40);
@@ -115,9 +121,16 @@
             // 刷新ToolStripMenuItem
             // 
             this.刷新ToolStripMenuItem.Name = "刷新ToolStripMenuItem";
-            this.刷新ToolStripMenuItem.Size = new System.Drawing.Size(77, 36);
+            this.刷新ToolStripMenuItem.Size = new System.Drawing.Size(77, 38);
             this.刷新ToolStripMenuItem.Text = "刷新";
             this.刷新ToolStripMenuItem.Click += new System.EventHandler(this.刷新ToolStripMenuItem_Click);
+            // 
+            // 定时刷新ToolStripMenuItem
+            // 
+            this.定时刷新ToolStripMenuItem.Name = "定时刷新ToolStripMenuItem";
+            this.定时刷新ToolStripMenuItem.Size = new System.Drawing.Size(127, 38);
+            this.定时刷新ToolStripMenuItem.Text = "定时刷新";
+            this.定时刷新ToolStripMenuItem.Click += new System.EventHandler(this.定时刷新ToolStripMenuItem_Click);
             // 
             // dgv_1
             // 
@@ -638,6 +651,17 @@
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "厂内车辆";
             // 
+            // timer1
+            // 
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+            // 
+            // 暂停刷新ToolStripMenuItem
+            // 
+            this.暂停刷新ToolStripMenuItem.Name = "暂停刷新ToolStripMenuItem";
+            this.暂停刷新ToolStripMenuItem.Size = new System.Drawing.Size(127, 38);
+            this.暂停刷新ToolStripMenuItem.Text = "暂停刷新";
+            this.暂停刷新ToolStripMenuItem.Click += new System.EventHandler(this.暂停刷新ToolStripMenuItem_Click);
+            // 
             // FrmTask
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 24F);
@@ -733,5 +757,8 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn TruckId;
         private System.Windows.Forms.DataGridViewTextBoxColumn Quantity;
         private System.Windows.Forms.DataGridViewTextBoxColumn ItemNo;
+        private System.Windows.Forms.ToolStripMenuItem 定时刷新ToolStripMenuItem;
+        private System.Windows.Forms.Timer timer1;
+        private System.Windows.Forms.ToolStripMenuItem 暂停刷新ToolStripMenuItem;
     }
 }
