@@ -53,10 +53,10 @@
     <Compile Include="DataBase\Base_DbOperate.cs" />
     <Compile Include="DataBase\Base_SQLServerOp.cs" />
     <Compile Include="DataBase\DBOperate.cs" />
-    <Compile Include="FrmMain.cs">
+    <Compile Include="View\FrmMain.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FrmMain.Designer.cs">
+    <Compile Include="View\FrmMain.Designer.cs">
       <DependentUpon>FrmMain.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
@@ -67,7 +67,13 @@
     <Compile Include="View\FrmTask.Designer.cs">
       <DependentUpon>FrmTask.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="FrmMain.resx">
+    <Compile Include="View\FrmTasksplit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\FrmTasksplit.Designer.cs">
+      <DependentUpon>FrmTasksplit.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="View\FrmMain.resx">
       <DependentUpon>FrmMain.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\licenses.licx" />
@@ -82,6 +88,9 @@
     </Compile>
     <EmbeddedResource Include="View\FrmTask.resx">
       <DependentUpon>FrmTask.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\FrmTasksplit.resx">
+      <DependentUpon>FrmTasksplit.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
