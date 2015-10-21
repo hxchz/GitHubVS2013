@@ -9,8 +9,9 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>JTInterface</RootNamespace>
     <AssemblyName>JTInterface</AssemblyName>
-    <TargetFrameworkVersion>v2.0</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -40,6 +41,9 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\..\..\C1FlexGrid安装注册\DLL\C1.Win.C1FlexGrid.dll</HintPath>
     </Reference>
+    <Reference Include="dal">
+      <HintPath>..\..\..\lshnt\changrong\bin\Debug\dal.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Deployment" />
@@ -53,6 +57,12 @@
     <Compile Include="DataBase\Base_DbOperate.cs" />
     <Compile Include="DataBase\Base_SQLServerOp.cs" />
     <Compile Include="DataBase\DBOperate.cs" />
+    <Compile Include="View\FrmEdit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\FrmEdit.Designer.cs">
+      <DependentUpon>FrmEdit.cs</DependentUpon>
+    </Compile>
     <Compile Include="View\FrmMain.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -67,12 +77,27 @@
     <Compile Include="View\FrmTask.Designer.cs">
       <DependentUpon>FrmTask.cs</DependentUpon>
     </Compile>
+    <Compile Include="View\FrmTaskPush.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\FrmTaskPush.Designer.cs">
+      <DependentUpon>FrmTaskPush.cs</DependentUpon>
+    </Compile>
     <Compile Include="View\FrmTasksplit.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="View\FrmTasksplit.Designer.cs">
       <DependentUpon>FrmTasksplit.cs</DependentUpon>
     </Compile>
+    <Compile Include="View\FrmTaskViewAll.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\FrmTaskViewAll.Designer.cs">
+      <DependentUpon>FrmTaskViewAll.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="View\FrmEdit.resx">
+      <DependentUpon>FrmEdit.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="View\FrmMain.resx">
       <DependentUpon>FrmMain.cs</DependentUpon>
     </EmbeddedResource>
@@ -85,13 +110,21 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <EmbeddedResource Include="View\FrmTask.resx">
       <DependentUpon>FrmTask.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="View\FrmTaskPush.resx">
+      <DependentUpon>FrmTaskPush.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="View\FrmTasksplit.resx">
       <DependentUpon>FrmTasksplit.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="View\FrmTaskViewAll.resx">
+      <DependentUpon>FrmTaskViewAll.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="app.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

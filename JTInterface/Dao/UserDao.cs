@@ -4,6 +4,7 @@ using System.Data;
 using System.Text;
 using System;
 using JTInterface.Dao;
+using System.Data.SqlClient;
 
 namespace JTInterface.Dao
 {
@@ -70,6 +71,44 @@ a2.no_ls=a.no_car6 ) x  order by x.date_bill desc");
             dt = dboperate.GetDataTable(sql.ToString().Trim());
             return dt;
         }
+        public DataTable SelectSend(string sdate,string edate)
+        {
+            dboperate = new DataBase.DBOperate();
+            DataTable dt = new DataTable();
+            string ConnString = getConnectString();
+            dboperate.ConnectString = ConnString;
+            string sql =string.Format(@"select top 200 sql_1.*,isnull(sql_total.qty_leiji,0) as qty_leiji from (select ls_productorder.no_bill as no_productorder,convert(bit,0) as 
+is_wancheng,ls_hetong.no_bill as no_hetong,
+                                ls_hetong.no_bill_in as no_bill_in,ls_peibidan.no_bill as no_peibidan,ls_productorder.no_fahuolou,
+                                ls_company.name_company,ls_hetong.name_product,ls_productorder.shigongbuwei,ls_productorder.qty_yuding,
+                                ls_productorder.supply_time,ls_productorder.gongyingpinlv ,ls_productorder.no_qiangdu_ranks,
+                                ls_qiangdu_ranks.name_qiangdu_ranks,ls_productorder.no_type_bengsong,ls_type_bengsong.name_type_bengsong,
+                                
+ls_guanzhuang.name_guanzhuang,ls_productorder.linkman,ls_productorder.linktel,done_time,ls_productorder.no_benghao,
+                                ls_productorder.no_bengrenyuan,chanheliao1.name_chanheliao as no_chanheliao1__1,chanheliao2.name_chanheliao as 
+no_chanheliao2__1,ls_productorder.qty_chanheliao1,ls_productorder.qty_chanheliao2,ls_hetong.distance_car
+                                from ls_productorder 
+                                left join ls_hetong on ls_productorder.no_hetong=ls_hetong.no_bill 
+                                left join ls_peibidan on ls_peibidan.no_product=ls_productorder.no_bill 
+                                left join ls_company on ls_company.no_ls=ls_hetong.no_company 
+                                left join ls_qiangdu_ranks on ls_qiangdu_ranks.no_ls=ls_productorder.no_qiangdu_ranks 
+                                left join ls_type_bengsong on ls_type_bengsong.no_ls=ls_productorder.no_type_bengsong 
+                                left join ls_guanzhuang on ls_guanzhuang.no_ls=ls_productorder.no_guanzhuang
+                                left join ls_chanheliao chanheliao1 on ls_productorder.no_chanheliao1=chanheliao1.no_ls
+                                left join ls_chanheliao chanheliao2 on ls_productorder.no_chanheliao2=chanheliao1.no_ls
+                                where 1=1 and done_state = 0 and done_time is not null  and done_time is not null ) sql_1 
+                                            left join (select ls_send.no_productorder,sum(isnull(qty_send,0)) as qty_leiji from ls_send where 
+ls_send.date_bill 
+                                    between '{0}' and '{1}' 
+                                    and no_fahuolou='1#' group by ls_send.no_productorder) sql_total on 
+sql_1.no_productorder=sql_total.no_productorder 
+                                            order by done_time desc "
+                ,sdate
+                ,edate
+                );
+            dt = dboperate.GetDataTable(sql.ToString().Trim());
+            return dt;
+        }
         public int Login(string username,string password)
         {
             dboperate = new DataBase.DBOperate();
@@ -104,6 +143,87 @@ a2.no_ls=a.no_car6 ) x  order by x.date_bill desc");
             dt = dboperate.GetDataTable(sql.ToString().Trim());
             return dt;
         }
+        public DataTable getCar()
+        {
+            DataTable dt = new DataTable();
+            dboperate = new DataBase.DBOperate();
+            string ConnString = getConnectString();
+            dboperate.ConnectString = ConnString;
+            string sql = string.Format(@"
+                            select ownercode as carid,intime from GpsBusQueue
+                            where Isfactory=1 and istask=0
+                    "
+                   );
+            dt = dboperate.GetDataTable(sql.ToString().Trim());
+            return dt;
+        }
+        public DataTable getRequire(string no_bill)
+        {
+            DataTable dt = new DataTable();
+            dboperate = new DataBase.DBOperate();
+            string ConnString = getConnectString();
+            dboperate.ConnectString = ConnString;
+            string sql = string.Format(@"
+                            select * from ls_send_require
+                            where no_bill='{0}'
+                    ",no_bill
+                   );
+            dt = dboperate.GetDataTable(sql.ToString().Trim());
+            return dt;
+        }
+        public DataTable getYupai()
+        {
+            DataTable dt = new DataTable();
+            dboperate = new DataBase.DBOperate();
+            string ConnString = getConnectString();
+            dboperate.ConnectString = ConnString;
+            string sdate = DateTime.Now.ToString("yyyy-MM-dd") + " 00:00:00";
+            string edate = DateTime.Now.ToString("yyyy-MM-dd") + " 23:59:59";
+            string sql = string.Format(@"
+                            select (case no_type_bengsong when '01' then '非泵' when '02' then '泵送' end) as name_bengsong,* from ls_send_yupai
+                            where date_bill between '{0}' and '{1}' 
+                            and isdel=0
+                    ", sdate,edate
+                   );
+            dt = dboperate.GetDataTable(sql.ToString().Trim());
+            return dt;
+        }
+        public DataTable GetScalar(string sql)
+        {
+            DataTable dt = new DataTable();
+            dboperate = new DataBase.DBOperate();
+            string ConnString = getConnectString();
+            dboperate.ConnectString = ConnString;
+            dt = dboperate.GetDataTable(sql.ToString().Trim());
+            return dt;
+        }
+        public string GetScalar_s(string sql)
+        {
+            string dt;
+            dboperate = new DataBase.DBOperate();
+            string ConnString = getConnectString();
+            dboperate.ConnectString = ConnString;
+            dt = dboperate.GetDataTable(sql.ToString().Trim()).ToString();
+            return dt;
+        }
+        public decimal GetScalar_d(string sql)
+        {
+            decimal dt;
+            try
+            {
+                dboperate = new DataBase.DBOperate();
+                string ConnString = getConnectString();
+                dboperate.ConnectString = ConnString;
+                dt = Convert.ToDecimal(dboperate.ExecuteScalar(sql.ToString().Trim()));
+                return dt;
+            }
+            catch (Exception ex)
+            {
+                dt = 0;
+                return dt;
+            }
+            
+        }
         public DataTable getSanYCarInfo()
         {
             DataTable dt = new DataTable();
@@ -118,6 +238,60 @@ a2.no_ls=a.no_car6 ) x  order by x.date_bill desc");
                    );
             dt = dboperate.GetDataTable(sql.ToString().Trim());
             return dt;
+        }
+        public string no_bill(string s, string tablename)
+        {
+            DataTable reader = new DataTable();
+            dboperate = new DataBase.DBOperate();
+            string ConnString = getConnectString();
+            dboperate.ConnectString = ConnString;
+            string date_now = DateTime.Now.ToString("yyyyMMdd");
+            string no_bill = "";
+            string sql = "select no_bill from " + tablename + " where substring(no_bill,1,8)='" + date_now + "' order by no_bill desc";
+            reader = dboperate.GetDataTable(sql);
+            try
+            {
+                if (reader != null)
+                {
+                    no_bill = reader.Rows[0]["no_bill"].ToString().Trim();
+                    if (no_bill.Length > 4)
+                    {
+                        string bill_1 = no_bill.Substring(0, no_bill.Length - 4);
+                        if (bill_1 == DateTime.Now.ToString("yyyyMMdd"))
+                        {
+                            string bill_2 = no_bill.Substring(no_bill.Length - 3, 3);
+                            int no = Convert.ToInt32(bill_2) + 1;
+                            if (no < 10)
+                            {
+                                bill_2 = "00" + no.ToString();
+                            }
+                            else if (no < 100)
+                            {
+                                bill_2 = "0" + no.ToString();
+                            }
+                            no_bill = bill_1 + "-" + bill_2;
+                        }
+                        else
+                        {
+                            no_bill = DateTime.Now.ToString("yyyyMMdd") + "-001";
+                        }
+                    }
+                    else
+                    {
+                        no_bill = DateTime.Now.ToString("yyyyMMdd") + "-001";
+                    }
+                }
+                else
+                {
+                    no_bill = DateTime.Now.ToString("yyyyMMdd") + "-001";
+                }
+            }
+            catch(Exception ex)
+            {
+                no_bill = DateTime.Now.ToString("yyyyMMdd") + "-001";
+            }
+            no_bill = s + no_bill;
+            return no_bill;
         }
     }
 }

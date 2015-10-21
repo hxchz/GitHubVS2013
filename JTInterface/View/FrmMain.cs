@@ -25,10 +25,8 @@ namespace JTInterface
             {
                 login();
                 setDefaultUserName();
-                FrmTask task = new FrmTask();
-                FrmTasksplit task2 = new FrmTasksplit();
-                task.Show();
-                task2.Show();
+                FrmTaskPush taskpush = new FrmTaskPush();
+                taskpush.Show();
                 this.Hide();
             }
             catch (Exception ex)
